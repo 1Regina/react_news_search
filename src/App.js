@@ -33,7 +33,7 @@ const App = () => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); //prevent ths continual default behaviour which is reload with every keystroke
+    event.preventDefault(); //prevent the continual default behaviour which is reload with every keystroke
     setUrl(`http://hn.algolia.com/api/v1/search?query=${searchQuery}`);
   };
 
