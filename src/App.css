@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+
+.articles-wrapper {
+  /* flex: 0 30% 0; */
+
+  display: flex;
+ /* justify-content: center; */
+  align-items: flex-start;
+  flex-direction: column;
+  margin-left: 20em;
+}

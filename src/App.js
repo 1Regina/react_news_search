@@ -1,11 +1,12 @@
 import React, { Component, useState, useEffect } from "react";
+import "./App.css";
 
 const App = () => {
   // state
   const [news, setNews] = useState([]);
   const [searchQuery, setSearchQuery] = useState("react"); // default search topic is react unless there are handleChange
   const [url, setUrl] = useState(
-    "http://hn.algolia.com/api/v1/search?query=react'"
+    "http://hn.algolia.com/api/v1/search?query=react"
   );
   const [loading, setLoading] = useState(false);
   // fetch news
@@ -52,11 +53,16 @@ const App = () => {
   //     ))
   // }
   //alternative since only 1 statement, return can be dropped n wo curly braces
-  const showNews = () => news.map((n, i) => <p key={i}>{n.title}</p>);
+  const showNews = () =>
+    news.slice(10).map((n, i) => (
+      <p key={i}>
+        <a href={n.url}>{n.title}</a>
+      </p>
+    ));
 
   // url will change only when button is click
   return (
-    <div>
+    <div className="App">
       <h2>News</h2>
       {showLoading() /* FORMERLY {loading ?<h2> Loading...</h2> : ""} */}
       {
@@ -65,11 +71,15 @@ const App = () => {
         <button>Search</button>
       </form> */
       }
-      {
-        showNews() /* {news.map((n, i) => (
+      <br></br>
+      <br></br>
+      <div className="articles-wrapper">
+        {
+          showNews() /* {news.map((n, i) => (
         <p key={i}>{n.title}</p>
       ))} */
-      }
+        }
+      </div>
     </div>
   );
 };
